@@ -51,9 +51,7 @@ class KeyStoreServicer(kvstore_pb2_grpc.KeyValueStoreServicer):
 
 def start_server():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-    kvstore_pb2_grpc.add_KeyValueStoreServicer_to_server(
-        KeyStoreServicer(), server
-    )
+    kvstore_pb2_grpc.add_KeyValueStoreServicer_to_server(KeyStoreServicer(), server)
     server.add_insecure_port("[::]:8000")
     logger.info("starting server on port 8000")
     server.start()
