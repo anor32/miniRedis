@@ -55,7 +55,7 @@ def start_server():
         KeyStoreServicer(), server
     )
     server.add_insecure_port("[::]:8000")
-    logger.info("start server on port 8000")
+    logger.info("starting server on port 8000")
     server.start()
     server.wait_for_termination()
 
