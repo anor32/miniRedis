@@ -1,3 +1,4 @@
+import logging
 from concurrent import futures
 
 import grpc
@@ -5,6 +6,8 @@ from cacheout import Cache
 
 import kvstore_pb2
 import kvstore_pb2_grpc
+
+logger = logging.getLogger(__name__)
 
 
 class KeyStoreServicer(kvstore_pb2_grpc.KeyValueStoreServicer):
@@ -52,7 +55,7 @@ def start_server():
         KeyStoreServicer(), server
     )
     server.add_insecure_port("[::]:8000")
-    print("start server on port 8000")
+    logger.info("start server on port 8000")
     server.start()
     server.wait_for_termination()
 
