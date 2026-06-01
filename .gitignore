@@ -1,0 +1,8 @@
+### Python_no_django template
+venv/
+.idea/
+.env
+*.pyc
+__pycashe__/
+*.log
+/debug.log
